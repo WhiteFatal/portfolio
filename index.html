@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Givi Jamburia — Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Droid+Serif:ital,wght@0,700;1,700&family=Manrope:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ─── RESET ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── TOKENS ─────────────────────────────────────────── */
+:root {
+  --bg:          #09090b;
+  --bg-card:     #0d0e11;
+  --bg-elevated: #111318;
+  --silver:      #A5AAB3;
+  --blue:        #3D98B4;
+  --violet:      #6157E1;
+  --red:         #f12727;
+  --border-red:  rgba(255, 0, 43, 0.4);
+  --border-dim:  rgba(165, 170, 179, 0.1);
+  --text:        #ECEEF2;
+  --text-muted:  #7E8393;
+  --text-soft:   #A5AAB3;
+  --sans:        'Manrope', sans-serif;
+  --serif:       'Droid Serif', serif;
+  --mono:        'DM Mono', monospace;
+}
+
+/* ─── BASE ───────────────────────────────────────────── */
+/* FIX: scroll-snap-type must live on the scroll container.
+   Putting it on <html> makes the root viewport the snap container,
+   which is exactly what we need for full-page card snapping. */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ─── DOT-GRID TEXTURE ───────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(165,170,179,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, black 30%, transparent 100%);
+}
+
+/* ─── NAV ────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 3rem;
+  border-bottom: 1px solid var(--border-red);
+  background: rgba(9, 9, 11, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text);
+}
+.nav-logo em {
+  color: var(--red);
+  font-style: normal;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+nav ul a {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 3px;
+}
+nav ul a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 1px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+nav ul a:hover { color: var(--blue); }
+nav ul a:hover::after { transform: scaleX(1); }
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  border: 1px solid var(--border-dim);
+  border-radius: 20px;
+  padding: 5px 14px;
+}
+
+/* ─── BLINK DOT ──────────────────────────────────────── */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3ecf8e;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(62, 207, 142, 0.6);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(62, 207, 142, 0.6); }
+  50%       { opacity: 0.25; box-shadow: none; }
+}
+
+/* ─── HERO ───────────────────────────────────────────── */
+/* FIX: height:100vh (not min-height) so it occupies exactly one snap slot */
+.hero {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem;
+  padding-top: 4rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Violet ambient glow */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 5%; left: -10%;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(ellipse at center, rgba(97,87,225,0.08) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero > * { position: relative; z-index: 1; }
+
+.hero-bg-text {
+  position: absolute;
+  bottom: -0.05em;
+  right: -0.02em;
+  font-family: var(--serif);
+  font-size: clamp(8rem, 22vw, 22rem);
+  font-weight: 700;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.035);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--blue);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  opacity: 0;
+  animation: up 0.7s 0.1s forwards;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--blue);
+  opacity: 0.7;
+}
+
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 0.93;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  animation: up 0.7s 0.22s forwards;
+}
+.hero-name-line2 { color: var(--violet); }
+
+.hero-sub {
+  margin-top: 2.25rem;
+  font-size: clamp(0.88rem, 1.4vw, 1rem);
+  color: var(--text-soft);
+  max-width: 480px;
+  line-height: 1.85;
+  font-weight: 300;
+  opacity: 0;
+  animation: up 0.7s 0.36s forwards;
+  border-left: 2px solid rgba(255,77,61,0.35);
+  padding-left: 1.1rem;
+}
+
+.hero-actions {
+  margin-top: 2.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: up 0.7s 0.48s forwards;
+}
+
+/* UPGRADE: metrics as a unified bordered row */
+.hero-metrics {
+  margin-top: 4.5rem;
+  display: flex;
+  opacity: 0;
+  animation: up 0.7s 0.6s forwards;
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+}
+.metric-item {
+  padding: 1rem 2rem;
+  border-right: 1px solid var(--border-dim);
+}
+.metric-item:last-child { border-right: none; }
+.metric-val {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1;
+}
+.metric-lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  letter-spacing: 0.08em;
+}
+
+@keyframes up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── BUTTONS ────────────────────────────────────────── */
+.btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 11px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.22s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+}
+.btn-primary {
+  background: var(--violet);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(97,87,225,0.3);
+}
+.btn-primary:hover {
+  background: #7068f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(97,87,225,0.45);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--text-soft);
+  border: 1px solid var(--border-red);
+}
+.btn-outline:hover {
+  color: var(--text);
+  border-color: var(--red);
+  background: rgba(255,77,61,0.05);
+}
+
+/* ─── SECTION HEADER ─────────────────────────────────── */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 3rem 3rem 2rem;
+}
+.section-idx {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.1em;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text);
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border-red), transparent);
+}
+
+/* ─── PROJECT CARDS ──────────────────────────────────── */
+/* Single page scroll. Each card is a compact snap target.
+   scroll-snap-align: center means the browser centers the
+   snapped card in the viewport — neighbors peek above/below. */
+#projects-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-viewport {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.project-card {
+  width: 100%;
+  height: clamp(340px, 44vh, 500px);
+  background: var(--bg-card);
+  border: none;
+  border-radius: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  position: relative;
+}
+/* Thin gradient line — the visible seam, fades at edges */
+.project-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: radial-gradient(ellipse 55% 100% at 50% 50%, rgba(255,77,61,0.6) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+/* Bloom — same center axis as the line, radiates symmetrically above & below */
+.project-card::before {
+  content: '';
+  position: absolute;
+  bottom: -10px; left: 15%; right: 15%;
+  height: 20px;
+  background: radial-gradient(ellipse 80% 100% at 50% 50%, rgba(255,77,61,0.35) 0%, transparent 100%);
+  filter: blur(7px);
+  pointer-events: none;
+  z-index: 2;
+}
+.project-card:hover {
+  box-shadow: inset 0 0 80px rgba(255,77,61,0.04);
+}
+
+/* images panel — sized by its content, fills full card height */
+.card-images {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.25rem 1.25rem 3.25rem;
+  gap: 1.25rem;
+  background: var(--bg);
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+}
+.card-images-row {
+  display: contents; /* slots become direct flex children of .card-images */
+}
+.card-img-slot {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--bg-elevated);
+  /* Height = card height minus top+bottom padding (2 × 1.25rem = 2.5rem) */
+  height: calc(clamp(340px, 44vh, 500px) - 2.5rem);
+  flex-shrink: 0;
+  width: auto; /* width is derived from aspect-ratio below */
+}
+/* Mobile — portrait 9:17 */
+.card-img-slot:first-child {
+  aspect-ratio: 9 / 17;
+}
+/* Laptop — landscape 16:10 */
+.card-img-slot:last-child {
+  aspect-ratio: 16 / 10;
+}
+.card-img-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: brightness(0.8) saturate(0.82);
+}
+.card-img-slot:hover img {
+  transform: scale(1.06);
+  filter: brightness(1) saturate(1.05);
+}
+.card-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+/* card info */
+.card-info {
+  padding: 2.5rem 2.75rem;
+  display: flex;
+  flex-direction: column;
+}
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+}
+.card-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.12em;
+}
+.card-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+.status-live     { background: rgba(62,207,142,0.1);   color: #3ecf8e;        border: 1px solid rgba(62,207,142,0.3); }
+.status-wip      { background: rgba(61,152,180,0.1);   color: var(--blue);    border: 1px solid rgba(61,152,180,0.3); }
+.status-archived { background: rgba(165,170,179,0.07); color: var(--silver);  border: 1px solid rgba(165,170,179,0.2); }
+
+.card-title {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 1.1rem;
+}
+.card-desc {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.85;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 1.75rem;
+}
+.stack-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+.stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 2rem;
+}
+.stack-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.tag-blue   { background: rgba(61,152,180,0.1);   color: var(--blue);   border: 1px solid rgba(61,152,180,0.28); }
+.tag-violet { background: rgba(97,87,225,0.1);    color: var(--violet); border: 1px solid rgba(97,87,225,0.28); }
+.tag-silver { background: rgba(165,170,179,0.07); color: var(--silver); border: 1px solid rgba(165,170,179,0.2); }
+.tag-red    { background: rgba(255,77,61,0.07);   color: var(--red);    border: 1px solid rgba(255,77,61,0.25); }
+
+.card-links { display: flex; gap: 1rem; }
+.card-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.card-link:hover { color: var(--blue); }
+
+/* ─── CONTACT ────────────────────────────────────────── */
+/* FIX: contact section snaps as one unit */
+#contact {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Footer sits inside the contact snap zone — no separate snap needed */
+footer {
+  border-top: 1px solid var(--border-red);
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.contact-wrap { padding: 0 3rem 4rem; }
+
+.contact-intro {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.85;
+  max-width: 520px;
+  font-weight: 300;
+  border-left: 2px solid var(--red);
+  padding-left: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border-red);
+  border: 1px solid var(--border-red);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 620px;
+  margin-bottom: 1.5rem;
+}
+.contact-cell {
+  background: var(--bg-card);
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+}
+.contact-cell:hover { background: var(--bg-elevated); }
+.contact-cell-lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.contact-cell-val {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--blue);
+}
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  border: 1px solid var(--border-dim);
+  border-radius: 6px;
+  padding: 0.9rem 1.25rem;
+  max-width: 620px;
+}
+
+footer p {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+footer em { color: var(--red); font-style: normal; }
+
+/* ─── REVEAL ANIMATION ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 860px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-pill { display: none; }
+  nav ul { gap: 1.25rem; }
+  .hero { padding: 0 1.5rem; padding-top: 4rem; }
+  .hero-metrics { flex-direction: column; width: 100%; border-radius: 8px; }
+  .metric-item { border-right: none; border-bottom: 1px solid var(--border-dim); }
+  .metric-item:last-child { border-bottom: none; }
+  .section-head { padding: 3rem 1.5rem 1.5rem; }
+  .card-viewport { padding: 0; }
+  .project-card { grid-template-columns: 1fr; height: auto; }
+  .card-images { padding: 1.25rem; border-right: none; border-bottom: 1px solid var(--border-red); height: 200px; }
+  .contact-wrap { padding: 0 1.5rem 3rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+  #contact { min-height: auto; }
+  footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">Givi Jamburia<em>.</em></div>
+  <ul>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <div class="nav-pill"><div class="dot"></div>available for work</div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-bg-text" aria-hidden="true">GJ</div>
+  <p class="hero-eyebrow">// software &amp; web developer</p>
+  <h1 class="hero-name">Givi<br><span class="hero-name-line2">Jamburia</span></h1>
+  <p class="hero-sub">Building fast, purposeful interfaces and robust systems.<br>Performance-first. Every millisecond counts.</p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn btn-primary">View projects →</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </div>
+  <div class="hero-metrics">
+    <div class="metric-item"><div class="metric-val" id="proj-count">0</div><div class="metric-lbl">// projects</div></div>
+    <div class="metric-item"><div class="metric-val">∞</div><div class="metric-lbl">// coffees</div></div>
+    <div class="metric-item"><div class="metric-val">&lt;100ms</div><div class="metric-lbl">// target TTI</div></div>
+  </div>
+</div>
+
+<!-- ─── PROJECTS ──────────────────────────────────────── -->
+<section id="projects">
+  <div class="section-head reveal">
+    <span class="section-idx">01 //</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div id="projects-stack"></div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────── -->
+<section id="contact">
+  <div class="section-head reveal">
+    <span class="section-idx">02 //</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="contact-wrap">
+    <p class="contact-intro reveal">Got a project in mind or want to collaborate?<br>I'm always open to interesting work. Let's build something fast.</p>
+    <div class="contact-grid reveal">
+      <a href="/cdn-cgi/l/email-protection#f4939d829db4918c9599849891da979b99" class="contact-cell">
+        <div class="contact-cell-lbl">email</div>
+        <div class="contact-cell-val"><span class="__cf_email__" data-cfemail="d0b7b9a6b990b5a8b1bda0bcb5feb3bfbd">[email&#160;protected]</span></div>
+      </a>
+      <a href="https://github.com/" target="_blank" class="contact-cell">
+        <div class="contact-cell-lbl">github</div>
+        <div class="contact-cell-val">github.com/givi</div>
+      </a>
+      <a href="https://linkedin.com/" target="_blank" class="contact-cell">
+        <div class="contact-cell-lbl">linkedin</div>
+        <div class="contact-cell-val">linkedin.com/in/givi</div>
+      </a>
+      <a href="https://twitter.com/" target="_blank" class="contact-cell">
+        <div class="contact-cell-lbl">twitter / x</div>
+        <div class="contact-cell-val">@givijamburia</div>
+      </a>
+    </div>
+    <div class="availability reveal"><div class="dot"></div>Currently available for freelance and full-time opportunities</div>
+  </div>
+
+  <footer>
+    <p>© 2026 Givi Jamburia — built with <em>♥</em> and zero frameworks.</p>
+    <p>Designed for speed.</p>
+  </footer>
+
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+/* ─── PROJECT DATA ───────────────────────────────────────
+   Edit this array to add / update projects.
+   images: [url1, url2]  — use '' for a placeholder slot
+   stack:  array of { label, style }
+           style options: tag-blue | tag-violet | tag-silver | tag-red
+   status: 'live' | 'wip' | 'archived'
+──────────────────────────────────────────────────────── */
+const PROJECTS = [
+  {
+    title:  'Project Alpha',
+    desc:   'A high-performance web dashboard with real-time data updates and a zero-latency rendering pipeline. Designed to handle thousands of simultaneous WebSocket events without a dropped frame.',
+    images: [
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=720&q=70',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=720&q=70',
+    ],
+    stack: [
+      { label: 'React',     style: 'tag-blue'   },
+      { label: 'Node.js',   style: 'tag-violet' },
+      { label: 'WebSocket', style: 'tag-silver' },
+      { label: 'Redis',     style: 'tag-red'    },
+    ],
+    status: 'live', liveUrl: 'https://example.com', codeUrl: 'https://github.com',
+  },
+  {
+    title:  'Project Beta',
+    desc:   'REST & GraphQL API layer with intelligent caching, rate limiting, and sub-50ms response times. Built to scale horizontally without any configuration changes.',
+    images: [
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=720&q=70',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?w=720&q=70',
+    ],
+    stack: [
+      { label: 'TypeScript', style: 'tag-violet' },
+      { label: 'PostgreSQL', style: 'tag-blue'   },
+      { label: 'GraphQL',    style: 'tag-red'    },
+      { label: 'Docker',     style: 'tag-silver' },
+    ],
+    status: 'live', liveUrl: '', codeUrl: 'https://github.com',
+  },
+  {
+    title:  'Project Gamma',
+    desc:   'Mobile-first e-commerce storefront achieving perfect Lighthouse scores and sub-1s TTI. Stripe-powered checkout with optimistic UI updates and offline cart persistence.',
+    images: [
+      'https://images.unsplash.com/photo-1523206489230-c012c64b2b48?w=720&q=70',
+      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=720&q=70',
+    ],
+    stack: [
+      { label: 'Next.js',  style: 'tag-blue'   },
+      { label: 'Tailwind', style: 'tag-violet' },
+      { label: 'Stripe',   style: 'tag-silver' },
+      { label: 'Vercel',   style: 'tag-red'    },
+    ],
+    status: 'wip', liveUrl: '', codeUrl: 'https://github.com',
+  },
+  {
+    title:  'Project Delta',
+    desc:   'CLI DevOps toolkit for automating deploy pipelines, blue-green deployments, health monitoring, and instant rollbacks — all from a single binary with zero runtime dependencies.',
+    images: [
+      'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=720&q=70',
+      'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=720&q=70',
+    ],
+    stack: [
+      { label: 'Go',        style: 'tag-silver' },
+      { label: 'Docker',    style: 'tag-blue'   },
+      { label: 'GitHub CI', style: 'tag-violet' },
+      { label: 'Terraform', style: 'tag-red'    },
+    ],
+    status: 'archived', liveUrl: '', codeUrl: 'https://github.com',
+  },
+];
+
+/* ─── HELPERS ────────────────────────────────────────── */
+function imgSlot(url, alt) {
+  if (url) {
+    return `<div class="card-img-slot"><img src="${url}" alt="${alt}" loading="lazy" decoding="async"></div>`;
+  }
+  return `<div class="card-img-slot"><div class="card-img-placeholder">[ no image ]</div></div>`;
+}
+
+/* ─── RENDER PROJECTS ────────────────────────────────── */
+function renderProjects() {
+  const container = document.getElementById('projects-stack');
+
+  container.innerHTML = PROJECTS.map((p, i) => {
+    const num   = String(i + 1).padStart(2, '0');
+    const tags  = p.stack.map(t => `<span class="stack-tag ${t.style}">${t.label}</span>`).join('');
+    const links = [
+      p.liveUrl ? `<a class="card-link" href="${p.liveUrl}" target="_blank">↗ live demo</a>` : '',
+      p.codeUrl ? `<a class="card-link" href="${p.codeUrl}" target="_blank">{ } source</a>`  : '',
+    ].filter(Boolean).join('');
+
+    return `
+      <div class="card-viewport">
+        <div class="project-card">
+          <div class="card-images">
+            <div class="card-images-row">
+              ${imgSlot(p.images[0], p.title + ' — image 1')}
+              ${imgSlot(p.images[1], p.title + ' — image 2')}
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-top">
+              <span class="card-num">${num} //</span>
+              <span class="card-badge status-${p.status}">${p.status}</span>
+            </div>
+            <div class="card-title">${p.title}</div>
+            <div class="card-desc">${p.desc}</div>
+            <div class="stack-label">stack &amp; frameworks</div>
+            <div class="stack-list">${tags}</div>
+            ${links ? `<div class="card-links">${links}</div>` : ''}
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+
+  observeReveal();
+}
+
+/* ─── REVEAL ON SCROLL ───────────────────────────────── */
+function observeReveal() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
+/* ─── COUNT-UP ───────────────────────────────────────── */
+function countUp(el, target) {
+  let n = 0;
+  const tick = setInterval(() => {
+    n++;
+    el.textContent = n;
+    if (n >= target) clearInterval(tick);
+  }, 80);
+}
+
+/* ─── INIT ───────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  renderProjects();
+  const projEl = document.getElementById('proj-count');
+  if (projEl) countUp(projEl, PROJECTS.length);
+});
+
+</script>
+</body>
+</html>

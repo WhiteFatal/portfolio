@@ -550,6 +550,7 @@ nav ul a:hover::after { transform: scaleX(1); }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 1rem;
 }
 
 /* Footer sits inside the contact snap zone — no separate snap needed */
@@ -564,7 +565,7 @@ footer {
   margin-top: auto;
 }
 
-.contact-wrap { padding: 0 3rem 4rem; }
+.contact-wrap { padding: 0 3rem 4rem;}
 
 /* ITEM 1: .contact-intro removed — intro paragraph replaced by headline in item 2 */
 
@@ -764,7 +765,7 @@ footer em { color: var(--red); font-style: normal; }
 
 <!-- ─── NAV ──────────────────────────────────────────── -->
 <nav>
-  <div class="nav-logo">Givi Jamburia<em>.</em></div>
+  <a href="#" class="nav-logo">Givi Jamburia<em>.</em></a>
   <ul>
     <li><a href="#projects">projects</a></li>
     <li><a href="#contact">contact</a></li>
@@ -816,7 +817,7 @@ footer em { color: var(--red); font-style: normal; }
          To add a new cell: copy a block, update href/label/value/icon src. -->
     <div class="contact-grid reveal">
 
-      <!-- Email — inline SVG envelope, no external request -->
+      <!-- Email -->
       <a href="mailto:givi@example.com" class="contact-cell">
         <div class="contact-cell-text">
           <span class="contact-cell-lbl">email</span>
@@ -825,7 +826,7 @@ footer em { color: var(--red); font-style: normal; }
         <svg class="contact-cell-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
       </a>
 
-      <!-- LinkedIn — Simple Icons CDN -->
+      <!-- LinkedIn -->
       <a href="https://linkedin.com/in/givi" target="_blank" class="contact-cell">
         <div class="contact-cell-text">
           <span class="contact-cell-lbl">linkedin</span>
@@ -834,7 +835,7 @@ footer em { color: var(--red); font-style: normal; }
         <img class="contact-cell-icon" src="icons/linkedin.svg" alt="LinkedIn">
       </a>
 
-      <!-- GitHub — Simple Icons CDN -->
+      <!-- GitHub -->
       <a href="https://github.com/givi" target="_blank" class="contact-cell">
         <div class="contact-cell-text">
           <span class="contact-cell-lbl">github</span>
@@ -843,7 +844,7 @@ footer em { color: var(--red); font-style: normal; }
         <img class="contact-cell-icon" src="icons/github.svg" alt="GitHub">
       </a>
 
-      <!-- Codewars — Simple Icons CDN -->
+      <!-- Codewars -->
       <a href="https://www.codewars.com/users/givi" target="_blank" class="contact-cell">
         <div class="contact-cell-text">
           <span class="contact-cell-lbl">codewars</span>
@@ -852,7 +853,7 @@ footer em { color: var(--red); font-style: normal; }
         <img class="contact-cell-icon" src="icons/codewars.svg" alt="Codewars">
       </a>
 
-      <!-- CodinGame — official favicon from codingame.com -->
+      <!-- CodinGame -->
       <a href="https://www.codingame.com/profile/givi" target="_blank" class="contact-cell">
         <div class="contact-cell-text">
           <span class="contact-cell-lbl">codingame</span>
@@ -861,7 +862,16 @@ footer em { color: var(--red); font-style: normal; }
         <img class="contact-cell-icon" src="icons/codingame.svg" alt="CodinGame">
       </a>
 
-      <!-- WhatsApp — Simple Icons CDN. Replace number in href with your real one -->
+      <!-- Scrimba -->
+      <a href="https://scrimba.com/@WhiteFatal" target="_blank" class="contact-cell">
+        <div class="contact-cell-text">
+          <span class="contact-cell-lbl">scrimba</span>
+          <span class="contact-cell-val">view profile</span>
+        </div>
+        <img class="contact-cell-icon" src="icons/scrimba.svg" alt="CV">
+      </a>
+
+      <!-- WhatsApp -->
       <a href="https://wa.me/995500000000" target="_blank" class="contact-cell">
         <div class="contact-cell-text">
           <span class="contact-cell-lbl">whatsapp</span>
@@ -870,7 +880,7 @@ footer em { color: var(--red); font-style: normal; }
         <img class="contact-cell-icon" src="icons/whatsapp.svg" alt="WhatsApp">
       </a>
 
-      <!-- Location — inline SVG pin, static (not a link) -->
+      <!-- Location -->
       <a href="https://wa.me/995500000000" target="_blank" class="contact-cell">
         <div class="contact-cell-text">
           <span class="contact-cell-lbl">current location</span>
@@ -879,14 +889,15 @@ footer em { color: var(--red); font-style: normal; }
         <img class="contact-cell-icon" src="icons/location.svg" alt="Location">
       </a>
 
-      <!-- CV — inline SVG document. Replace href with your actual PDF path -->
+      <!-- CV Document -->
       <a href="/cv/givi-jamburia-cv.pdf" target="_blank" class="contact-cell">
         <div class="contact-cell-text">
           <span class="contact-cell-lbl">cv / resume</span>
           <span class="contact-cell-val">download PDF ↓</span>
         </div>
-        <svg class="contact-cell-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-5 8v-1h8v1H8zm0-3v-1h8v1H8zm0-3V9h4v1H8z"/></svg>
+        <img class="contact-cell-icon" src="icons/document.svg" alt="CV">
       </a>
+      
 
     </div>
     <!-- ITEM 4: Availability pill — full width, prominent green, justified layout -->

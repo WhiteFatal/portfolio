@@ -38,10 +38,11 @@ const PROJECTS = [
   },
   {
     title:  'zgaprebi.ge - აუდიო ზღაპრები - ©2015',
-    desc:   `An online platform for Audio Fairy Tales in Georgian language.
-    Rich library of stories with user authentication and curated recommendations for readers of all ages.
-    ქართულად წაკითხული აუდიო ზღაპრების ონლაინ პლატფორმა, რომელიც მსმენელს სთავაზობს სახალისო ზღაპრების
-    კოლექციას, რეკომედციებს სხვადასხვა ასაკის ბავშვებისთვის და რეგისტრაციის სისტემას.`,
+    desc:   `An online platform for Audio Fairy Tales in Georgian language.<br/>
+    Rich library of stories with user authentication and curated recommendations for readers of all ages.<br/>
+    ქართულად წაკითხული აუდიო ზღაპრების ონლაინ პლატფორმა,<br/>
+    რომელიც მსმენელს სთავაზობს სახალისო ზღაპრების კოლექციას,<br/>
+    რეგისტრაციის სისტემას და რეკომედციებს სხვადასხვა ასაკის ბავშვებისთვის.`,
     images: [
       'project_images/zgaprebi_mb.png',
       'project_images/zgaprebi_sc.png',

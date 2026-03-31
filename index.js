@@ -34,22 +34,29 @@ const PROJECTS = [
       { label: 'GraphQL',    style: 'tag-red'    },
       { label: 'Docker',     style: 'tag-silver' },
     ],
-    status: 'live', liveUrl: '', codeUrl: 'https://github.com',
+    status: 'wip', liveUrl: '', codeUrl: 'https://github.com',
   },
   {
-    title:  'Project Gamma',
-    desc:   'Mobile-first e-commerce storefront achieving perfect Lighthouse scores and sub-1s TTI. Stripe-powered checkout with optimistic UI updates and offline cart persistence.',
+    title:  'zgaprebi.ge - აუდიო ზღაპრები - ©2015',
+    desc:   `An online platform for Audio Fairy Tales in Georgian language.
+    Rich library of stories with user authentication and curated recommendations for readers of all ages.
+    ქართულად წაკითხული აუდიო ზღაპრების ონლაინ პლატფორმა, რომელიც მსმენელს სთავაზობს სახალისო ზღაპრების
+    კოლექციას, რეკომედციებს სხვადასხვა ასაკის ბავშვებისთვის და რეგისტრაციის სისტემას.`,
     images: [
-      'https://images.unsplash.com/photo-1523206489230-c012c64b2b48?w=720&q=70',
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=720&q=70',
+      'project_images/zgaprebi_mb.png',
+      'project_images/zgaprebi_sc.png',
     ],
     stack: [
-      { label: 'Next.js',  style: 'tag-blue'   },
-      { label: 'Tailwind', style: 'tag-violet' },
-      { label: 'Stripe',   style: 'tag-silver' },
-      { label: 'Vercel',   style: 'tag-red'    },
+      { label: 'HTML',   style: 'tag-silver' },
+      { label: 'CSS',   style: 'tag-red'    },
+      { label: 'Javascript',  style: 'tag-blue'},
+      { label: 'pHp 5.6', style: 'tag-violet' },
+      { label: 'pHp 8.3', style: 'tag-violet' },
+      { label: 'DirectAdmin', style: 'tag-silver' },
+
+      
     ],
-    status: 'wip', liveUrl: '', codeUrl: 'https://github.com',
+    status: 'live', liveUrl: 'https://zgaprebi.ge', codeUrl: 'https://github.com/WhiteFatal/zgaprebi',
   },
   {
     title:  'Project Delta',
@@ -102,7 +109,7 @@ function renderProjects() {
               <span class="card-num">${num} //</span>
               <span class="card-badge status-${p.status}">${p.status}</span>
             </div>
-            <div class="card-title">${p.title}</div>
+            <a class="card-link" href="${p.liveUrl}" target="_blank"><div class="card-title">${p.title}</div></a>
             <div class="card-desc">${p.desc}</div>
             <div class="stack-label">stack &amp; frameworks</div>
             <div class="stack-list">${tags}</div>

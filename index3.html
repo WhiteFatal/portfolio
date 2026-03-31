@@ -566,148 +566,59 @@ footer {
 
 .contact-wrap { padding: 0 3rem 4rem; }
 
-/* ITEM 1: .contact-intro removed — intro paragraph replaced by headline in item 2 */
-
-/* ITEM 2: Contact headline — large serif italic CTA, sits above the contact links */
-.contact-headline {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 5vw, 3.75rem);
-  font-weight: 700;
-  font-style: italic;
-  color: var(--text);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 2.75rem;
+.contact-intro {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.85;
+  max-width: 520px;
+  font-weight: 300;
+  border-left: 2px solid var(--red);
+  padding-left: 1.25rem;
+  margin-bottom: 2.5rem;
 }
-/* Accent word colored in violet — matches hero name accent pattern */
-.contact-headline span { color: var(--violet); }
-/* ITEM 3: Contact grid — 3 columns on desktop, 2 on tablet, 1 on mobile.
-   Each cell is a self-contained card: label on top, value below.
-   Hover: left border accent slides in, value brightens. */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 1px;
-  /* Gap background creates the grid line color between cells */
-  background: var(--border-dim);
-  border: 1px solid var(--border-dim);
+  background: var(--border-red);
+  border: 1px solid var(--border-red);
   border-radius: 8px;
   overflow: hidden;
+  max-width: 620px;
   margin-bottom: 1.5rem;
 }
-
-/* Link cell — row layout: text group on left, icon on right, both vertically centered */
 .contact-cell {
   background: var(--bg-card);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   padding: 1.25rem 1.5rem;
   text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  min-height: 90px;
-  border-left: 2px solid transparent;
-  transition: background 0.22s, border-color 0.22s;
+  display: block;
+  transition: background 0.2s;
 }
-.contact-cell:hover {
-  background: var(--bg-elevated);
-  border-left-color: var(--blue);
-}
-
-/* Static cell (e.g. Location) — same row layout, not interactive 
-.contact-cell-static {
-  background: var(--bg-card);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1.25rem 1.5rem;
-  position: relative;
-  min-height: 90px;
-  border-left: 2px solid transparent;
-}
-*/
-
-/* Text group — grows to fill available space, pushing icon to the far right */
-.contact-cell-text {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-/* ITEM 4 UPDATE: Icon size increased to 32px. Right end of cell, vertically centered.
-   img-based icons (Simple Icons SVGs + CodinGame .ico) tinted blue via CSS filter.
-   Inline SVG icons use currentColor = var(--blue). */
-.contact-cell-icon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  margin-left: 1.25rem;
-  opacity: 0.5;
-  transition: opacity 0.22s;
-}
-/* Brand icons and CodinGame .ico — tinted to match --blue (#3D98B4) 
-.contact-cell-icon[src] {
-  filter: invert(55%) sepia(60%) saturate(400%) hue-rotate(160deg) brightness(1.1);
-}
-*/
-/* Inline SVG icons — currentColor picks up the blue */
-.contact-cell-icon:not([src]) {
-  color: var(--blue);
-}
-.contact-cell:hover .contact-cell-icon { opacity: 1; }
-/* Static cell icon stays dim — not interactive */
-.contact-cell-static .contact-cell-icon { opacity: 0.2; }
-
+.contact-cell:hover { background: var(--bg-elevated); }
 .contact-cell-lbl {
   font-family: var(--mono);
   font-size: 10px;
   color: var(--text-muted);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   margin-bottom: 5px;
-  transition: color 0.22s;
 }
-.contact-cell:hover .contact-cell-lbl { color: var(--silver); }
-
 .contact-cell-val {
   font-size: 14px;
   font-weight: 400;
   color: var(--blue);
-  transition: color 0.22s;
 }
-.contact-cell:hover .contact-cell-val { color: var(--text); }
-
-/* Static value — not a link, softer color */
-.contact-cell-static .contact-cell-lbl { color: var(--text-muted); }
-.contact-cell-static .contact-cell-val { color: var(--text-soft); font-size: 14px; }
-/* ITEM 4: Availability pill — stretched full width of the contact column.
-   Larger padding, brighter green text, justified layout with dot on left
-   and a subtle "open to work" label on the right for scannability. */
 .availability {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: #3ecf8e;
-  border: 1px solid rgba(62, 207, 142, 0.25);
-  border-radius: 6px;
-  padding: 1.1rem 1.5rem;
-  width: 100%;
-  background: rgba(62, 207, 142, 0.04);
-}
-.availability-left {
-  display: flex;
-  align-items: center;
   gap: 10px;
-}
-.availability-right {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(62, 207, 142, 0.5);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  border: 1px solid var(--border-dim);
+  border-radius: 6px;
+  padding: 0.9rem 1.25rem;
+  max-width: 620px;
 }
 
 footer p {
@@ -730,12 +641,6 @@ footer em { color: var(--red); font-style: normal; }
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────────── */
-
-/* Tablet — 2 columns for contact grid */
-@media (max-width: 1024px) and (min-width: 541px) {
-  .contact-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 860px) {
   nav { padding: 1rem 1.25rem; }
   .nav-pill { display: none; }
@@ -749,13 +654,9 @@ footer em { color: var(--red); font-style: normal; }
   .project-card { grid-template-columns: 1fr; height: auto; }
   .card-images { padding: 1.25rem; border-right: none; border-bottom: 1px solid var(--border-red); height: 200px; }
   .contact-wrap { padding: 0 1.5rem 3rem; }
+  .contact-grid { grid-template-columns: 1fr; }
   #contact { min-height: auto; }
   footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-}
-
-/* Mobile — 1 column for contact grid */
-@media (max-width: 540px) {
-  .contact-grid { grid-template-columns: 1fr; }
 }
 
 </style>
@@ -807,96 +708,26 @@ footer em { color: var(--red); font-style: normal; }
     <div class="section-rule"></div>
   </div>
   <div class="contact-wrap">
-    <!-- ITEM 2: Contact headline — CTA replacing the removed intro paragraph -->
-    <h3 class="contact-headline reveal"><span>Let's build something,</span><br>contact me</h3>
-    <!-- ITEM 3: Contact rows — single column editorial list.
-         Link rows use <a class="contact-cell">, static rows use <div class="contact-cell-static">.
-         To add a new row: copy a block below and update label + value + href. -->
-    <!-- ITEM 4 UPDATE: Icons moved to right end, text wrapped in .contact-cell-text.
-         To add a new cell: copy a block, update href/label/value/icon src. -->
+    <p class="contact-intro reveal">Got a project in mind or want to collaborate?<br>I'm always open to interesting work. Let's build something fast.</p>
     <div class="contact-grid reveal">
-
-      <!-- Email — inline SVG envelope, no external request -->
-      <a href="mailto:givi@example.com" class="contact-cell">
-        <div class="contact-cell-text">
-          <span class="contact-cell-lbl">email</span>
-          <span class="contact-cell-val">givi@example.com</span>
-        </div>
-        <svg class="contact-cell-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <a href="/cdn-cgi/l/email-protection#f4939d829db4918c9599849891da979b99" class="contact-cell">
+        <div class="contact-cell-lbl">email</div>
+        <div class="contact-cell-val"><span class="__cf_email__" data-cfemail="d0b7b9a6b990b5a8b1bda0bcb5feb3bfbd">[email&#160;protected]</span></div>
       </a>
-
-      <!-- LinkedIn — Simple Icons CDN -->
-      <a href="https://linkedin.com/in/givi" target="_blank" class="contact-cell">
-        <div class="contact-cell-text">
-          <span class="contact-cell-lbl">linkedin</span>
-          <span class="contact-cell-val">linkedin.com/in/givi</span>
-        </div>
-        <img class="contact-cell-icon" src="icons/linkedin.svg" alt="LinkedIn">
+      <a href="https://github.com/" target="_blank" class="contact-cell">
+        <div class="contact-cell-lbl">github</div>
+        <div class="contact-cell-val">github.com/givi</div>
       </a>
-
-      <!-- GitHub — Simple Icons CDN -->
-      <a href="https://github.com/givi" target="_blank" class="contact-cell">
-        <div class="contact-cell-text">
-          <span class="contact-cell-lbl">github</span>
-          <span class="contact-cell-val">github.com/givi</span>
-        </div>
-        <img class="contact-cell-icon" src="icons/github.svg" alt="GitHub">
+      <a href="https://linkedin.com/" target="_blank" class="contact-cell">
+        <div class="contact-cell-lbl">linkedin</div>
+        <div class="contact-cell-val">linkedin.com/in/givi</div>
       </a>
-
-      <!-- Codewars — Simple Icons CDN -->
-      <a href="https://www.codewars.com/users/givi" target="_blank" class="contact-cell">
-        <div class="contact-cell-text">
-          <span class="contact-cell-lbl">codewars</span>
-          <span class="contact-cell-val">codewars.com/users/givi</span>
-        </div>
-        <img class="contact-cell-icon" src="icons/codewars.svg" alt="Codewars">
+      <a href="https://twitter.com/" target="_blank" class="contact-cell">
+        <div class="contact-cell-lbl">twitter / x</div>
+        <div class="contact-cell-val">@givijamburia</div>
       </a>
-
-      <!-- CodinGame — official favicon from codingame.com -->
-      <a href="https://www.codingame.com/profile/givi" target="_blank" class="contact-cell">
-        <div class="contact-cell-text">
-          <span class="contact-cell-lbl">codingame</span>
-          <span class="contact-cell-val">codingame.com/givi</span>
-        </div>
-        <img class="contact-cell-icon" src="icons/codingame.svg" alt="CodinGame">
-      </a>
-
-      <!-- WhatsApp — Simple Icons CDN. Replace number in href with your real one -->
-      <a href="https://wa.me/995500000000" target="_blank" class="contact-cell">
-        <div class="contact-cell-text">
-          <span class="contact-cell-lbl">whatsapp</span>
-          <span class="contact-cell-val">+995 500 000 000</span>
-        </div>
-        <img class="contact-cell-icon" src="icons/whatsapp.svg" alt="WhatsApp">
-      </a>
-
-      <!-- Location — inline SVG pin, static (not a link) -->
-      <a href="https://wa.me/995500000000" target="_blank" class="contact-cell">
-        <div class="contact-cell-text">
-          <span class="contact-cell-lbl">current location</span>
-          <span class="contact-cell-val">Tbilisi, Georgia</span>
-        </div>
-        <img class="contact-cell-icon" src="icons/location.svg" alt="Location">
-      </a>
-
-      <!-- CV — inline SVG document. Replace href with your actual PDF path -->
-      <a href="/cv/givi-jamburia-cv.pdf" target="_blank" class="contact-cell">
-        <div class="contact-cell-text">
-          <span class="contact-cell-lbl">cv / resume</span>
-          <span class="contact-cell-val">download PDF ↓</span>
-        </div>
-        <svg class="contact-cell-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-5 8v-1h8v1H8zm0-3v-1h8v1H8zm0-3V9h4v1H8z"/></svg>
-      </a>
-
     </div>
-    <!-- ITEM 4: Availability pill — full width, prominent green, justified layout -->
-    <div class="availability reveal">
-      <div class="availability-left">
-        <div class="dot"></div>
-        Currently available for freelance and full-time opportunities
-      </div>
-      <div class="availability-right">Open to work</div>
-    </div>
+    <div class="availability reveal"><div class="dot"></div>Currently available for freelance and full-time opportunities</div>
   </div>
 
   <footer>

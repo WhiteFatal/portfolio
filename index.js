@@ -46,10 +46,29 @@ const PROJECTS = [
     stack: [
       { label: 'Astro', style: 'tag-violet' },
       { label: 'Alpine.js', style: 'tag-blue'   },
+      { label: 'Tailwind CSS', style: 'tag-red'   },
       { label: 'Sanity CMS',    style: 'tag-blue'    },
       { label: 'Vercel',     style: 'tag-silver' },
     ],
     status: 'live', liveUrl: 'https://onyx-corp.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/OnyxCorp',
+  },
+  {
+    title:  'Text Editor — ©2025',
+    desc:   `Google Docs Clone project based on the youtube course of "Code With Antonio"`,
+    images: [
+      'project_images/editor_mb.png',
+      'project_images/editor_sc.png',
+    ],
+    stack: [
+      { label: 'Next.js', style: 'tag-violet' },
+      { label: 'Tailwind CSS', style: 'tag-red'   },
+      { label: 'TypeScript',    style: 'tag-blue'    },
+      { label: 'Liveblocks',    style: 'tag-silver'    },
+      { label: 'Clerk',    style: 'tag-silver'    },
+      { label: 'Supabase',    style: 'tag-blue'    },
+      { label: 'Vercel',     style: 'tag-silver' },
+    ],
+    status: 'live', liveUrl: 'https://text-editor-iota-drab.vercel.app', codeUrl: 'https://github.com/WhiteFatal/Text-Editor',
   },
   {
     title:  `want to go deeper down to the rabbit hole?`,

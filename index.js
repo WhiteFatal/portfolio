@@ -22,7 +22,7 @@ const PROJECTS = [
     status: 'wip', liveUrl: '', codeUrl: '',
   },
   {
-    title:  'PITCH - Single page app for Football game reservation',
+    title:  'PITCH - Single page app for Football game reservation — ©2026',
     desc:   'A high-performance web dashboard with real-time data updates and a zero-latency rendering pipeline. Designed to handle thousands of simultaneous WebSocket events without a dropped frame.',
     images: [
       'project_images/pitch_mb.png',
@@ -36,7 +36,7 @@ const PROJECTS = [
     status: 'live', liveUrl: 'https://pitch-eight-omega.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/Pitch',
   },
   {
-    title:  'Onyx Corporation — Pharmaceutical Manufacturing',
+    title:  'Onyx Corporation | Pharmaceutical Manufacturing — ©2026',
     desc:   `Onyx Corporation delivers certified pharmaceutical products across the region.<br/>
     Onyx Corporation поставляет сертифицированные фармацевтические продукты по всему региону.`,
     images: [
@@ -50,6 +50,20 @@ const PROJECTS = [
       { label: 'Vercel',     style: 'tag-silver' },
     ],
     status: 'live', liveUrl: 'https://onyx-corp.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/OnyxCorp',
+  },
+  {
+    title:  `want to go deeper to the rabbit hole?`,
+    desc:   `...keep scrolling down to find ancient projects from the early 2000s, including my very first website from 2004`,
+    images: [
+      'project_images/matrix_sc.gif',
+      'project_images/matrix_sc.gif',
+    ],
+    stack: [
+      { label: 'HTML',   style: 'tag-silver' },
+      { label: 'CSS',   style: 'tag-red'    },
+      { label: 'Javascript',  style: 'tag-blue'},      
+    ],
+    status: '', liveUrl: 'https://whitefatal.github.io/matrix/', codeUrl: 'https://github.com/WhiteFatal/matrix',
   },
   {
     title:  'zgaprebi.ge - აუდიო ზღაპრები - ©2015',
@@ -72,19 +86,19 @@ const PROJECTS = [
     status: 'live', liveUrl: 'https://zgaprebi.ge', codeUrl: 'https://github.com/WhiteFatal/zgaprebi',
   },
   {
-    title:  'Project Delta',
-    desc:   'CLI DevOps toolkit for automating deploy pipelines, blue-green deployments, health monitoring, and instant rollbacks — all from a single binary with zero runtime dependencies.',
+    title:  'Ancient website of AOE2 community - ©2004',
+    desc:   `Comunity website of Georgian players of Age of Empires 2 in Georgian language.<br/>
+    Age of Empires 2-ის ქართველი მოთამაშეების პირველი, ისტორიული ვებ-გვერდი`,
     images: [
-      'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=720&q=70',
-      'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=720&q=70',
+      'project_images/aoe_mb.png',
+      'project_images/aoe_sc.png',
     ],
     stack: [
-      { label: 'Go',        style: 'tag-silver' },
-      { label: 'Docker',    style: 'tag-blue'   },
-      { label: 'GitHub CI', style: 'tag-violet' },
-      { label: 'Terraform', style: 'tag-red'    },
+      { label: 'HTML',        style: 'tag-silver' },
+      { label: 'CSS',    style: 'tag-red'   },
+      { label: 'Javascript', style: 'tag-blue' },
     ],
-    status: 'archived', liveUrl: '', codeUrl: 'https://github.com',
+    status: 'archived', liveUrl: 'https://whitefatal.github.io/aoe/', codeUrl: 'https://github.com/WhiteFatal/aoe',
   },
 ];
 

@@ -19,30 +19,42 @@ const PROJECTS = [
       { label: 'WebSocket', style: 'tag-silver' },
       { label: 'Redis',     style: 'tag-red'    },
     ],
-    status: 'live', liveUrl: 'https://example.com', codeUrl: 'https://github.com',
+    status: 'wip', liveUrl: '', codeUrl: '',
   },
   {
-    title:  'Project Beta',
-    desc:   'REST & GraphQL API layer with intelligent caching, rate limiting, and sub-50ms response times. Built to scale horizontally without any configuration changes.',
+    title:  'PITCH - Single page app for Football game reservation',
+    desc:   'A high-performance web dashboard with real-time data updates and a zero-latency rendering pipeline. Designed to handle thousands of simultaneous WebSocket events without a dropped frame.',
     images: [
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=720&q=70',
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?w=720&q=70',
+      'project_images/pitch_mb.png',
+      'project_images/pitch_sc.png',
     ],
     stack: [
-      { label: 'TypeScript', style: 'tag-violet' },
-      { label: 'PostgreSQL', style: 'tag-blue'   },
-      { label: 'GraphQL',    style: 'tag-red'    },
-      { label: 'Docker',     style: 'tag-silver' },
+      { label: 'React',     style: 'tag-blue'   },
+      { label: 'Firebase', style: 'tag-red' },
+      { label: 'Vercel',     style: 'tag-silver'    },
     ],
-    status: 'wip', liveUrl: '', codeUrl: 'https://github.com',
+    status: 'live', liveUrl: 'https://pitch-eight-omega.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/Pitch',
+  },
+  {
+    title:  'Onyx Corporation — Pharmaceutical Manufacturing',
+    desc:   `Onyx Corporation delivers certified pharmaceutical products across the region.<br/>
+    Onyx Corporation поставляет сертифицированные фармацевтические продукты по всему региону.`,
+    images: [
+      'project_images/onyx_mb.png',
+      'project_images/onyx_sc.png',
+    ],
+    stack: [
+      { label: 'Astro', style: 'tag-violet' },
+      { label: 'Alpine.js', style: 'tag-blue'   },
+      { label: 'Sanity CMS',    style: 'tag-blue'    },
+      { label: 'Vercel',     style: 'tag-silver' },
+    ],
+    status: 'live', liveUrl: 'https://onyx-corp.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/OnyxCorp',
   },
   {
     title:  'zgaprebi.ge - აუდიო ზღაპრები - ©2015',
-    desc:   `An online platform for Audio Fairy Tales in Georgian language.<br/>
-    Rich library of stories with user authentication and curated recommendations for readers of all ages.<br/>
-    ქართულად წაკითხული აუდიო ზღაპრების ონლაინ პლატფორმა,<br/>
-    რომელიც მსმენელს სთავაზობს სახალისო ზღაპრების კოლექციას,<br/>
-    რეგისტრაციის სისტემას და რეკომედციებს სხვადასხვა ასაკის ბავშვებისთვის.`,
+    desc:   `An online platform for Audio Fairy Tales in Georgian language. Library of stories for readers of all ages.<br/>
+    ქართულად წაკითხული სახალისო აუდიო ზღაპრების ონლაინ პლატფორმა, რომელიც მსმენელს ჩანაწერების ვრცელ კოლექციას სთავაზობს.`,
     images: [
       'project_images/zgaprebi_mb.png',
       'project_images/zgaprebi_sc.png',

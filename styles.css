@@ -352,7 +352,7 @@ nav ul a:hover::after { transform: scaleX(1); }
 
 .project-card {
   width: 100%;
-  height: clamp(340px, 44vh, 500px);
+  height: clamp(340px, 50vh, 600px);
   background: var(--bg-card);
   border: none;
   border-radius: 0;

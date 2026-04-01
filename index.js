@@ -52,8 +52,8 @@ const PROJECTS = [
     status: 'live', liveUrl: 'https://onyx-corp.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/OnyxCorp',
   },
   {
-    title:  `want to go deeper to the rabbit hole?`,
-    desc:   `...keep scrolling down to find ancient projects from the early 2000s, including my very first website from 2004`,
+    title:  `want to go deeper down to the rabbit hole?`,
+    desc:   `keep scrolling and find ancient projects from the early ages of pHp and Javascript, including my very first website from 2004`,
     images: [
       'project_images/matrix_sc.gif',
       'project_images/matrix_sc.gif',

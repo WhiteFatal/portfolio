@@ -70,7 +70,7 @@ const PROJECTS = [
     desc:   `An online platform for Audio Fairy Tales in Georgian language. Library of stories for readers of all ages.<br/>
     ქართულად წაკითხული სახალისო აუდიო ზღაპრების ონლაინ პლატფორმა, რომელიც მსმენელს ჩანაწერების ვრცელ კოლექციას სთავაზობს.`,
     images: [
-      'project_images/zgaprebi_mb.png',
+      'project_images/zgaprebi_mb.png', 
       'project_images/zgaprebi_sc.png',
     ],
     stack: [

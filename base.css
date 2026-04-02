@@ -1,0 +1,82 @@
+/* ─── RESET ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── TOKENS ─────────────────────────────────────────── */
+:root {
+  --bg:          #09090b;
+  --bg-card:     #0d0e11;
+  --bg-elevated: #111318;
+  --silver:      #A5AAB3;
+  --blue:        #3D98B4;
+  --violet:      #6157E1;
+  --red:         #f12727;
+  --border-red:  rgba(255, 0, 43, 0.4);
+  --border-dim:  rgba(165, 170, 179, 0.1);
+  --text:        #ECEEF2;
+  --text-muted:  #7E8393;
+  --text-soft:   #A5AAB3;
+  --sans:        'Manrope', sans-serif;
+  --serif:       'Droid Serif', serif;
+  --mono:        'DM Mono', monospace;
+}
+
+/* ─── BASE ───────────────────────────────────────────── */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ─── DOT-GRID TEXTURE ───────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(165,170,179,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, black 30%, transparent 100%);
+}
+
+/* ─── BLINK DOT ──────────────────────────────────────── */
+/* Shared by nav-pill and availability section */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3ecf8e;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(62, 207, 142, 0.6);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(62, 207, 142, 0.6); }
+  50%       { opacity: 0.25; box-shadow: none; }
+}
+
+/* ─── KEYFRAMES ──────────────────────────────────────── */
+@keyframes up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── REVEAL ANIMATION ───────────────────────────────── */
+/* Triggered by IntersectionObserver in index.js */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}

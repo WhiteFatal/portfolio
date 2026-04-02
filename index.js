@@ -189,7 +189,7 @@ function countUp(el, target) {
     n++;
     el.textContent = n;
     if (n >= target) clearInterval(tick);
-  }, 80);
+  }, 300);
 }
 
 /* ─── INIT ───────────────────────────────────────────── */

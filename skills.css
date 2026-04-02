@@ -1,0 +1,105 @@
+/* ─── HERO SKILLS PANEL ──────────────────────────────────────────────────────
+   Desktop: .hero becomes a 2-column grid.
+     Col 1 → .hero-content  (all original hero elements, unchanged)
+     Col 2 → .hero-skills   (tech stack panel)
+   Mobile: both blocks stack vertically in normal flow.
+   Depends on CSS variables defined in base.css.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ─── HERO LAYOUT ────────────────────────────────────────────────────────── */
+@media (min-width: 861px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    /* hero-bg-text is position:absolute so it sits outside flow — no issue */
+  }
+
+  .hero-content {
+    align-self: center;
+  }
+
+  .hero-skills {
+    align-self: center;
+  }
+}
+
+/* ─── HERO CONTENT WRAPPER ───────────────────────────────────────────────── */
+/* Restores the original flex-column behaviour for the left column */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  /* All children (eyebrow, name, sub, actions, metrics) keep their existing
+     margins and animations — nothing inside needs to change */
+}
+
+/* ─── SKILLS PANEL ───────────────────────────────────────────────────────── */
+.hero-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  opacity: 0;
+  animation: up 0.7s 0.72s forwards; /* continues the staggered sequence */
+}
+
+/* ─── GROUP (one category row) ───────────────────────────────────────────── */
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+/* Category label — matches the // comment style used elsewhere */
+.skills-group-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+}
+
+/* ─── TAG ROW ────────────────────────────────────────────────────────────── */
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ─── INDIVIDUAL SKILL TAG ───────────────────────────────────────────────── */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-soft);
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 4px;
+  padding: 5px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.skill-tag:hover {
+  color: var(--blue);
+  border-color: rgba(99, 179, 237, 0.35);
+  background: var(--bg-elevated);
+}
+
+/* ─── ICON INSIDE TAG ────────────────────────────────────────────────────── */
+.skill-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* ─── MOBILE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .hero-skills {
+    margin-top: 2.5rem;
+    gap: 0.75rem;
+  }
+}

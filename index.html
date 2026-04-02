@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="base.css">
 <link rel="stylesheet" href="layout.css">
 <link rel="stylesheet" href="projects.css">
+<link rel="stylesheet" href="skills.css">
 <script src="index.js" defer></script>
 
 </head>
@@ -29,18 +30,162 @@
 <!-- ─── HERO ─────────────────────────────────────────── -->
 <div class="hero">
   <div class="hero-bg-text" aria-hidden="true">GJ</div>
-  <p class="hero-eyebrow">// software &amp; web developer</p>
-  <h1 class="hero-name">Givi<br><span class="hero-name-line2">Jamburia</span></h1>
-  <p class="hero-sub">Building fast, purposeful interfaces and robust systems.<br>Performance-first. Every millisecond counts.</p>
-  <div class="hero-actions">
-    <a href="#projects" class="btn btn-primary">View projects →</a>
-    <a href="#contact" class="btn btn-outline">Get in touch</a>
+
+  <!-- Left column: all original hero content unchanged -->
+  <div class="hero-content">
+    <p class="hero-eyebrow">// software &amp; web developer</p>
+    <h1 class="hero-name">Givi<br><span class="hero-name-line2">Jamburia</span></h1>
+    <p class="hero-sub">Building fast, purposeful interfaces and robust systems.<br>Performance-first. Every millisecond counts.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View projects →</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric-item"><div class="metric-val" id="proj-count">0</div><div class="metric-lbl">// showcase projects</div></div>
+      <div class="metric-item"><div class="metric-val">∞</div><div class="metric-lbl">// coffees</div></div>
+      <div class="metric-item"><div class="metric-val">&lt;100ms</div><div class="metric-lbl">// target TTI</div></div>
+    </div>
   </div>
-  <div class="hero-metrics">
-    <div class="metric-item"><div class="metric-val" id="proj-count">0</div><div class="metric-lbl">// showcase projects</div></div>
-    <div class="metric-item"><div class="metric-val">∞</div><div class="metric-lbl">// coffees</div></div>
-    <div class="metric-item"><div class="metric-val">&lt;100ms</div><div class="metric-lbl">// target TTI</div></div>
+
+  <!-- ─── HERO SKILLS PANEL ────────────────────────────── -->
+  <!-- Right column on desktop, below hero-content on mobile -->
+  <div class="hero-skills" aria-label="Tech stack">
+
+    <!-- Structure -->
+    <div class="skills-group">
+      <span class="skills-group-label">// structure</span>
+      <div class="skills-row">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="skill-tag">
+          <img src="icons/skills/html5-original.svg" alt="HTML" class="skill-icon">HTML
+        </a>
+        <a href="https://astro.build" target="_blank" class="skill-tag">
+          <img src="icons/skills/astro-original.svg" alt="Astro" class="skill-icon">Astro
+        </a>
+      </div>
+    </div>
+
+    <!-- Styling -->
+    <div class="skills-group">
+      <span class="skills-group-label">// styling</span>
+      <div class="skills-row">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="skill-tag">
+          <img src="icons/skills/css3-original.svg" alt="CSS" class="skill-icon">CSS
+        </a>
+        <a href="https://tailwindcss.com" target="_blank" class="skill-tag">
+          <img src="icons/skills/tailwindcss-original.svg" alt="Tailwind CSS" class="skill-icon">Tailwind CSS
+        </a>
+      </div>
+    </div>
+
+    <!-- Language -->
+    <div class="skills-group">
+      <span class="skills-group-label">// language</span>
+      <div class="skills-row">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="skill-tag">
+          <img src="icons/skills/javascript-original.svg" alt="JavaScript" class="skill-icon">JavaScript
+        </a>
+        <a href="https://www.typescriptlang.org" target="_blank" class="skill-tag">
+          <img src="icons/skills/typescript-original.svg" alt="TypeScript" class="skill-icon">TypeScript
+        </a>
+        <a href="https://alpinejs.dev" target="_blank" class="skill-tag">
+          <img src="icons/skills/alpinejs-original.svg" alt="Alpine.js" class="skill-icon">Alpine.js
+        </a>
+      </div>
+    </div>
+
+    <!-- Frameworks & Libraries -->
+    <div class="skills-group">
+      <span class="skills-group-label">// frameworks &amp; libraries</span>
+      <div class="skills-row">
+        <a href="https://react.dev" target="_blank" class="skill-tag">
+          <img src="icons/skills/react-original.svg" alt="React" class="skill-icon">React
+        </a>
+        <a href="https://nextjs.org" target="_blank" class="skill-tag">
+          <img src="icons/skills/nextjs-original.svg" alt="Next.JS" class="skill-icon">Next.JS
+        </a>
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <div class="skills-group">
+      <span class="skills-group-label">// backend</span>
+      <div class="skills-row">
+        <a href="https://nodejs.org" target="_blank" class="skill-tag">
+          <img src="icons/skills/nodejs-original.svg" alt="Node.JS" class="skill-icon">Node.JS
+        </a>
+        <a href="https://expressjs.com" target="_blank" class="skill-tag">
+          <img src="icons/skills/express-original.svg" alt="Express.js" class="skill-icon">Express.js
+        </a>
+        <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" class="skill-tag">
+          <!-- icon: pending -->SQL
+        </a>
+      </div>
+    </div>
+
+    <!-- BaaS / Database -->
+    <div class="skills-group">
+      <span class="skills-group-label">// baas &amp; database</span>
+      <div class="skills-row">
+        <a href="https://firebase.google.com" target="_blank" class="skill-tag">
+          <img src="icons/skills/firebase-plain.svg" alt="Firebase" class="skill-icon">Firebase
+        </a>
+        <a href="https://supabase.com" target="_blank" class="skill-tag">
+          <img src="icons/skills/supabase-original.svg" alt="Supabase" class="skill-icon">Supabase
+        </a>
+      </div>
+    </div>
+
+    <!-- AI Agents -->
+    <div class="skills-group">
+      <span class="skills-group-label">// ai agents</span>
+      <div class="skills-row">
+        <a href="https://www.anthropic.com/claude" target="_blank" class="skill-tag">
+          <!-- icon: pending -->Claude
+        </a>
+      </div>
+    </div>
+
+    <!-- Deployment -->
+    <div class="skills-group">
+      <span class="skills-group-label">// deployment</span>
+      <div class="skills-row">
+        <a href="https://github.com" target="_blank" class="skill-tag">
+          <img src="icons/skills/github-original.svg" alt="GitHub" class="skill-icon">GitHub
+        </a>
+        <a href="https://vercel.com" target="_blank" class="skill-tag">
+          <img src="icons/skills/vercel-original.svg" alt="Vercel" class="skill-icon">Vercel
+        </a>
+        <a href="https://www.netlify.com" target="_blank" class="skill-tag">
+          <img src="icons/skills/netlify-original.svg" alt="Netlify" class="skill-icon">Netlify
+        </a>
+        <a href="https://www.directadmin.com" target="_blank" class="skill-tag">
+          <!-- icon: pending -->DirectAdmin
+        </a>
+        <a href="https://www.namecheap.com" target="_blank" class="skill-tag">
+          <!-- icon: pending -->Namecheap
+        </a>
+      </div>
+    </div>
+
+    <!-- Training & Practice -->
+    <div class="skills-group">
+      <span class="skills-group-label">// training &amp; practice</span>
+      <div class="skills-row">
+        <a href="https://scrimba.com" target="_blank" class="skill-tag">
+          <!-- icon: pending -->Scrimba
+        </a>
+        <a href="https://www.codewars.com" target="_blank" class="skill-tag">
+          <!-- icon: pending -->Codewars
+        </a>
+        <a href="https://www.freecodecamp.org" target="_blank" class="skill-tag">
+          <!-- icon: pending -->freeCodeCamp
+        </a>
+      </div>
+    </div>
+
   </div>
+  <!-- ─── END HERO SKILLS PANEL ─────────────────────────── -->
+
 </div>
 
 <!-- ─── PROJECTS ──────────────────────────────────────── -->
@@ -61,13 +206,7 @@
     <div class="section-rule"></div>
   </div>
   <div class="contact-wrap">
-    <!-- ITEM 2: Contact headline — CTA replacing the removed intro paragraph -->
     <h3 class="contact-headline reveal"><span>Let's build something,</span><br>contact me</h3>
-    <!-- ITEM 3: Contact rows — single column editorial list.
-         Link rows use <a class="contact-cell">, static rows use <div class="contact-cell-static">.
-         To add a new row: copy a block below and update label + value + href. -->
-    <!-- ITEM 4 UPDATE: Icons moved to right end, text wrapped in .contact-cell-text.
-         To add a new cell: copy a block, update href/label/value/icon src. -->
     <div class="contact-grid reveal">
 
       <!-- Email -->
@@ -150,10 +289,8 @@
         </div>
         <img class="contact-cell-icon" src="icons/document.svg" alt="CV">
       </a>
-      
 
     </div>
-    <!-- ITEM 4: Availability pill — full width, prominent green, justified layout -->
     <div class="availability reveal">
       <div class="availability-left">
         <div class="dot"></div>

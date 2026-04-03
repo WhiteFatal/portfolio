@@ -10,8 +10,8 @@ const PROJECTS = [
     title:  'Radiance | Web Development Studio',
     desc:   'Official website of a professional web studio transforming ideas into digital experiences and business solutions.',
     images: [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=720&q=70',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=720&q=70',
+      'project_images/radiance_mb.png',
+      'project_images/radiance_sc.png',
     ],
     stack: [
       { label: 'Next.js',     style: 'tag-blue'   },

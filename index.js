@@ -7,23 +7,23 @@
 ──────────────────────────────────────────────────────── */
 const PROJECTS = [
   {
-    title:  'Project Alpha',
-    desc:   'A high-performance web dashboard with real-time data updates and a zero-latency rendering pipeline. Designed to handle thousands of simultaneous WebSocket events without a dropped frame.',
+    title:  'Radiance | Web Development Studio',
+    desc:   'Official website of a professional web studio transforming ideas into digital experiences and business solutions.',
     images: [
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=720&q=70',
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=720&q=70',
     ],
     stack: [
-      { label: 'React',     style: 'tag-blue'   },
-      { label: 'Node.js',   style: 'tag-violet' },
-      { label: 'WebSocket', style: 'tag-silver' },
-      { label: 'Redis',     style: 'tag-red'    },
+      { label: 'Next.js',     style: 'tag-blue'   },
+      { label: 'Tailwind CSS', style: 'tag-red'   },
+      { label: 'TypeScript',    style: 'tag-blue'    },
+      { label: 'Vercel',     style: 'tag-silver' },
     ],
-    status: 'wip', liveUrl: '', codeUrl: '',
+    status: 'wip', liveUrl: 'https://radiance.ge/', codeUrl: '',
   },
   {
-    title:  'PITCH - Single page app for Football game reservation — ©2026',
-    desc:   'A high-performance web dashboard with real-time data updates and a zero-latency rendering pipeline. Designed to handle thousands of simultaneous WebSocket events without a dropped frame.',
+    title:  'PITCH - Football game reservation — ©2026',
+    desc:   'Single page application / PWA with player ranking system and real-time updates.',
     images: [
       'project_images/pitch_mb.png',
       'project_images/pitch_sc.png',

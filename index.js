@@ -53,6 +53,22 @@ const PROJECTS = [
     status: 'live', liveUrl: 'https://onyx-corp.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/OnyxCorp',
   },
   {
+    title:  'Reminder Notes — ©2026',
+    desc:   'Single page application / PWA for keeping personal notes',
+    images: [
+      'project_images/reminder_mb.png',
+      'project_images/reminder_sc.png',
+    ],
+    stack: [
+      { label: 'HTML',   style: 'tag-silver' },
+      { label: 'CSS',   style: 'tag-red'    },
+      { label: 'Javascript',  style: 'tag-blue'},
+      { label: 'Firebase', style: 'tag-red' },
+      { label: 'Netlify',  style: 'tag-violet'},
+    ],
+    status: 'live', liveUrl: 'https://reminder-notes-app.netlify.app/', codeUrl: 'https://github.com/WhiteFatal/reminder-notes',
+  },
+  {
     title:  'Text Editor — ©2025',
     desc:   `Google Docs Clone project based on the youtube course of "Code With Antonio"`,
     images: [

@@ -53,8 +53,8 @@ const PROJECTS = [
     status: 'live', liveUrl: 'https://onyx-corp.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/OnyxCorp',
   },
   {
-    title:  'Reminder Notes — ©2026',
-    desc:   'Single page application / PWA for keeping personal notes',
+    title:  'Reminder Notes — ©2025',
+    desc:   'Single page application / PWA for keeping small personal remindrs or notes',
     images: [
       'project_images/reminder_mb.png',
       'project_images/reminder_sc.png',

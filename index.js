@@ -53,6 +53,23 @@ const PROJECTS = [
     status: 'live', liveUrl: 'https://onyx-corp.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/OnyxCorp',
   },
   {
+    title:  'Age of Empires 2 Community Website — ©2026',
+    desc:   `Collaboration project with Team Georgia<br/>
+    Georgian Community website with live data updted from official Age of Empires 2 Definitive eddition API`,
+    images: [
+      'project_images/aoe-new_mb.png',
+      'project_images/aoe-new_sc.png',
+    ],
+    stack: [
+      { label: 'Next.js', style: 'tag-violet' },
+      { label: 'Tailwind CSS', style: 'tag-red'   },
+      { label: 'TypeScript',    style: 'tag-blue'    },
+      { label: 'Supabase',    style: 'tag-blue'    },
+      { label: 'Vercel',     style: 'tag-silver' },
+    ],
+    status: 'live', liveUrl: 'https://www.aoe.ge', codeUrl: 'https://github.com/Dito-Orkodashvili/aoe',
+  },
+  {
     title:  'Reminder Notes — ©2025',
     desc:   'Single page application / PWA for keeping small personal remindrs or notes',
     images: [

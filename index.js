@@ -53,6 +53,20 @@ const PROJECTS = [
     status: 'live', liveUrl: 'https://onyx-corp.vercel.app/', codeUrl: 'https://github.com/WhiteFatal/OnyxCorp',
   },
   {
+    title:  'SUZUKI Animated HTML Advertisement Banner — ©2026',
+    desc:   'Lightweight Animaed Banner Add of ZUSUKI Vehicles.',
+    images: [
+      'project_images/banner_mb.png',
+      'project_images/banner_sc.png',
+    ],
+    stack: [
+      { label: 'HTML',   style: 'tag-silver' },
+      { label: 'CSS',   style: 'tag-red'    },
+      { label: 'Javascript',  style: 'tag-blue'},
+    ],
+    status: 'live', liveUrl: 'https://whitefatal.github.io/suzuki_html_banner/', codeUrl: 'https://github.com/WhiteFatal/suzuki_html_banner',
+  },
+  {
     title:  'Age of Empires 2 Community Website — ©2026',
     desc:   `Collaboration project with Team Georgia<br/>
     Georgian Community website with live data updted from official Age of Empires 2 Definitive eddition API`,

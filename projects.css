@@ -201,6 +201,13 @@
 }
 .card-link:hover { color: var(--blue); }
 
+.matrix-container {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Noto Sans Georgian', 'Courier New', Courier, monospace;
+}
+
 /* ─── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 860px) {
   .card-viewport { padding: 0; }

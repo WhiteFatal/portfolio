@@ -120,10 +120,7 @@ const PROJECTS = [
   {
     title:  `want to go deeper down to the rabbit hole?`,
     desc:   `keep scrolling and find ancient projects from the early ages of pHp and Javascript, including my very first website from 2004`,
-    images: [
-      'project_images/matrix_sc.gif',
-      'project_images/matrix_sc.gif',
-    ],
+    images: [],
     stack: [
       { label: 'HTML',   style: 'tag-silver' },
       { label: 'CSS',   style: 'tag-red'    },
@@ -173,7 +170,13 @@ function imgSlot(url, alt) {
   if (url) {
     return `<div class="card-img-slot"><img src="${url}" alt="${alt}" loading="lazy" decoding="async"></div>`;
   }
-  return `<div class="card-img-slot"><div class="card-img-placeholder">[ no image ]</div></div>`;
+  return `
+    <div class="card-img-slot">
+      <div class="matrix-container">
+        <canvas class="matrix-canvas"></canvas>
+      </div>
+    </div>
+  `;
 }
 
 /* ─── RENDER PROJECTS ────────────────────────────────── */
@@ -213,6 +216,12 @@ function renderProjects() {
   }).join('');
 
   observeReveal();
+
+  document.querySelectorAll('.matrix-container canvas').forEach(canvasEl => {
+    if (typeof initMatrix === 'function') {
+      initMatrix(canvasEl);
+    }
+  });
 }
 
 /* ─── REVEAL ON SCROLL ───────────────────────────────── */

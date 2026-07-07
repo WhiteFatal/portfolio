@@ -3,7 +3,7 @@ function initMatrix(canvas) {
   const ctx = canvas.getContext("2d");
   let canvasWidth = window.innerWidth;
   let canvasHeight = window.innerHeight;
-  let elementCount = 5000;
+  let elementCount = 50;
   let fallingElementArray = [];
   let fontSize = 18;
   let columnNumber = canvasWidth / fontSize;
@@ -16,8 +16,7 @@ function initMatrix(canvas) {
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
 
-  class FallingSymbol
-  {
+  class FallingSymbol  {
     constructor (x, y) {
         {
             this.x = x;
@@ -35,14 +34,14 @@ function initMatrix(canvas) {
         this.y += this.speed;
 
         if (this.y > canvasHeight) {
-            this.draw.y = Math.random() * canvasHeight / 2 - 50;
+            this.y = Math.random() * canvasHeight / 2 - 50;
             this.x = Math.floor(Math.random() * columnNumber) * fontSize;
             this.speed = (-Math.random() * fontSize * 3) / 4 + (fontSize * 3) / 4;
         }
     }
-}
+  }
 
-let update = () => {
+  let update = () => {
     if (fallingElementArray.length < elementCount) {
         let fallingElement = new FallingSymbol (
             Math.floor(Math.random() * columnNumber) * fontSize,

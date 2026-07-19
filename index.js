@@ -16,10 +16,25 @@ const PROJECTS = [
     stack: [
       { label: 'Next.js',     style: 'tag-blue'   },
       { label: 'Tailwind CSS', style: 'tag-red'   },
-      { label: 'TypeScript',    style: 'tag-blue'    },
-      { label: 'Vercel',     style: 'tag-silver' },
+      { label: 'TypeScript',    style: 'tag-blue' },
+      { label: 'Vercel',     style: 'tag-silver'  },
     ],
     status: 'wip', liveUrl: 'https://radiance.ge/', codeUrl: '',
+  },
+  {
+    title:  'My Home Bar | Home Bar Cocktails Store',
+    desc:   'Trial dev-store on shopify platform, view password is: aipaup',
+    images: [
+      'project_images/home-bar_mb.png',
+      'project_images/home-bar_sc.png',
+    ],
+    stack: [
+      { label: 'Shopify',     style: 'tag-green'   },
+      { label: 'Liquid', style: 'tag-blue'         },
+      { label: 'HTML',   style: 'tag-silver'       },
+      { label: 'CSS',   style: 'tag-red'           },      
+    ],
+    status: 'live', liveUrl: 'https://radiance.ge/', codeUrl: '',
   },
   {
     title:  'PITCH - Football game reservation — ©2026',

@@ -22,7 +22,7 @@ const PROJECTS = [
     status: 'wip', liveUrl: 'https://radiance.ge/', codeUrl: '',
   },
   {
-    title:  'My Home Bar | Home Bar Cocktails Store',
+    title:  'My Home Bar | Cocktails Store — ©2026',
     desc:   'Trial dev-store on shopify platform, view password is: aipaup',
     images: [
       'project_images/home-bar_mb.png',

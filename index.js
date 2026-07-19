@@ -34,7 +34,7 @@ const PROJECTS = [
       { label: 'HTML',   style: 'tag-silver'       },
       { label: 'CSS',   style: 'tag-red'           },      
     ],
-    status: 'live', liveUrl: 'https://radiance.ge/', codeUrl: '',
+    status: 'live', liveUrl: 'https://myhome-practice.myshopify.com/', codeUrl: '',
   },
   {
     title:  'PITCH - Football game reservation — ©2026',

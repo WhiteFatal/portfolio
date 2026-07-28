@@ -34,7 +34,7 @@ const PROJECTS = [
       { label: 'HTML',   style: 'tag-silver'       },
       { label: 'CSS',   style: 'tag-red'           },      
     ],
-    status: 'live', liveUrl: 'https://myhome-practice.myshopify.com/', codeUrl: '',
+    status: 'live', liveUrl: 'https://myhome-practice.myshopify.com/', codeUrl: 'https://github.com/WhiteFatal/home-bar',
   },
   {
     title:  'PITCH - Football game reservation — ©2026',

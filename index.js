@@ -7,6 +7,21 @@
 ──────────────────────────────────────────────────────── */
 const PROJECTS = [
   {
+    title:  'EBRA | Creative Ceramics Workshop ებრა — ©2026',
+    desc:   'Studio Ebra produces Georgian, handmade ceramics. Each piece is created by professional artists and ceramists with individual designs',
+    images: [
+      'project_images/EBRA_mb.png',
+      'project_images/EBRA_sc.png',
+    ],
+    stack: [
+      { label: 'Shopify',     style: 'tag-green'   },
+      { label: 'Liquid', style: 'tag-blue'         },
+      { label: 'HTML',   style: 'tag-silver'       },
+      { label: 'CSS',   style: 'tag-red'           },      
+    ],
+    status: 'live', liveUrl: 'https://ebraceramics.com/', codeUrl: 'https://github.com/WhiteFatal/ebra-theme',
+  },
+  {
     title:  'AID Group | Pharmaceutical Engineering & GMP Consulting — ©2026',
     desc:   `Facility & utility engineering, equipment selection, qualification/validation (DQ/IQ/OQ/PQ) for pharmaceutical manufacturers`,
     images: [

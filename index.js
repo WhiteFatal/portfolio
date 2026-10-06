@@ -98,7 +98,7 @@ const PROJECTS = [
   },
   {
     title:  'SUZUKI Animated HTML Advertisement Banner — ©2026',
-    desc:   'Lightweight Animaed Banner Add of ZUSUKI Vehicles.',
+    desc:   'Lightweight Animated Banner Add of SUZUKI Vehicles.',
     images: [
       'project_images/banner_mb.png',
       'project_images/banner_sc.png',
@@ -113,7 +113,7 @@ const PROJECTS = [
   {
     title:  'Age of Empires 2 Community Website — ©2026',
     desc:   `Collaboration project with Team Georgia<br/>
-    Georgian Community website with live data updted from official Age of Empires 2 Definitive eddition API`,
+    Georgian Community website with live data updated from official Age of Empires 2 Definitive edition API`,
     images: [
       'project_images/aoe-new_mb.png',
       'project_images/aoe-new_sc.png',
@@ -129,7 +129,7 @@ const PROJECTS = [
   },
   {
     title:  'Reminder Notes — ©2025',
-    desc:   'Single page application / PWA for keeping small personal remindrs or notes',
+    desc:   'Single page application / PWA for keeping small personal reminders or notes',
     images: [
       'project_images/reminder_mb.png',
       'project_images/reminder_sc.png',
@@ -194,7 +194,7 @@ const PROJECTS = [
   },
   {
     title:  'Ancient website of AOE2 community - ©2004',
-    desc:   `Comunity website of Georgian players of Age of Empires 2 in Georgian language.<br/>
+    desc:   `Community website of Georgian players of Age of Empires 2 in Georgian language.<br/>
     Age of Empires 2-ის ქართველი მოთამაშეების პირველი, ისტორიული ვებ-გვერდი`,
     images: [
       'project_images/aoe_mb.png',

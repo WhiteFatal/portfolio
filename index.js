@@ -7,6 +7,20 @@
 ──────────────────────────────────────────────────────── */
 const PROJECTS = [
   {
+    title:  'AID Group | Pharmaceutical Engineering & GMP Consulting — ©2026',
+    desc:   `Facility & utility engineering, equipment selection, qualification/validation (DQ/IQ/OQ/PQ) for pharmaceutical manufacturers`,
+    images: [
+      'project_images/AID_group_mb.png',
+      'project_images/AID_group_sc.png',
+    ],
+    stack: [
+      { label: 'Astro', style: 'tag-violet' },
+      { label: 'Javascript',  style: 'tag-blue'},
+      { label: 'Vercel',     style: 'tag-silver' },
+    ],
+    status: 'live', liveUrl: 'https://gxp.ge/', codeUrl: 'https://github.com/WhiteFatal/aid-group-astro',
+  },
+  {
     title:  'Radiance | Web Development Studio',
     desc:   'Official website of a professional web studio transforming ideas into digital experiences and business solutions.',
     images: [
